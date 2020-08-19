@@ -4,9 +4,9 @@
 
 BME280 sensor;
 
-char ssid[] = "[INSERT SSID]";
-char pass[] = "[INSERT PASSWORD]";
-unsigned long poll = 20000;
+char ssid[] = "[INSERT SSID]"; //insert desired SSID
+char pass[] = "[INSERT PASSWORD]"; //insert desired network password
+unsigned long poll = 20000; //insert polling time (in ms)
 
 int status = WL_IDLE_STATUS;
 WiFiServer server(80);
