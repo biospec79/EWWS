@@ -112,10 +112,10 @@ void loop()
       temp = sensor.readTempC();
       if (atmo)
       {
-        client.print("\r\nHumidity: ");
+        client.print("\r\nHumidity(%RH): ");
         client.print(humidity);
     
-        client.print("\r\nPressure: ");
+        client.print("\r\nPressure(Pascals): ");
         client.print(pressure);
     
         client.print("\r\nAltitude(Meters): ");
