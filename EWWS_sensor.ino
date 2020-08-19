@@ -18,7 +18,7 @@ float humidity;
 float pressure;
 float altitude;
 float temp;
-bool atmo;
+bool atmo = true;
 
 int w_d_pin = A5;
 int w_s_pin = 2;
@@ -123,12 +123,19 @@ void loop()
         client.print("\r\nTemperature(Celsius): ");
         client.print(temp);
       }
-      else {client.print("\r\n The atmospheric sensor is unresponsive.");}
+      else
+      {
+        client.print("\r\n The atmospheric sensor is unresponsive.");
+        if(sensor.beginI2C())
+        {
+          atmo = true;
+        }
+      }
       
       
       client.print("\r\n");
-      //cycle every 10 seconds (accounting for sampling time)
-      delay(10000-(wind_speed/1000));
+      //cycle every 20 seconds (accounting for sampling time)
+      delay(20000-(wind_speed/1000));
     }
   }
 }
