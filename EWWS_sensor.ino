@@ -6,6 +6,7 @@ BME280 sensor;
 
 char ssid[] = "[INSERT SSID]";
 char pass[] = "[INSERT PASSWORD]";
+unsigned long poll = 20000;
 
 int status = WL_IDLE_STATUS;
 WiFiServer server(80);
@@ -135,7 +136,7 @@ void loop()
       
       client.print("\r\n");
       //cycle every 20 seconds (accounting for sampling time)
-      delay(20000-(wind_speed/1000));
+      delay(poll-(wind_speed/1000));
     }
   }
 }
